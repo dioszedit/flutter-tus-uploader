@@ -1,6 +1,6 @@
 # Flutter TUS Uploader
 
-A Proof of Concept (POC) Flutter application demonstrating resilient file uploading using the TUS (Resumable Upload) protocol, with a Dockerized TUS server.
+A Proof of Concept (POC) Flutter application demonstrating resilient file uploading using the TUS (Resumable Upload) protocol.
 
 ## Features
 
@@ -8,12 +8,11 @@ A Proof of Concept (POC) Flutter application demonstrating resilient file upload
 - Upload files to a TUS-compatible server
 - Display upload progress
 - Handle network interruptions gracefully (to be implemented)
-- Dockerized TUS server for easy deployment
 
 ## Prerequisites
 
 - Flutter SDK
-- Docker
+- Docker (for running the TUS server)
 
 ## Setup
 
@@ -23,22 +22,20 @@ A Proof of Concept (POC) Flutter application demonstrating resilient file upload
    cd flutter-tus-uploader
    ```
 
-2. Install Flutter dependencies:
+2. Install dependencies:
    ```
    flutter pub get
    ```
 
-3. Build and run the TUS server using Docker:
+3. Run the TUS server using Docker:
    ```
-   cd server
-   docker build -t my-tusd .
-   docker run -p 1080:1080 my-tusd
+   docker-compose up -d
    ```
 
 4. Update the server URL in `lib/main.dart` if necessary:
    ```dart
    final client = TusClient(
-     Uri.parse('http://your-server-ip:1080/files/'),
+     Uri.parse('http://locahost:1080/files/'),
      _file!,
      store: TusMemoryStore(),
    );
@@ -51,23 +48,8 @@ A Proof of Concept (POC) Flutter application demonstrating resilient file upload
 
 ## Project Structure
 
-- `lib/main.dart`: Main Flutter application code
+- `lib/main.dart`: Main application code
 - `pubspec.yaml`: Flutter project configuration and dependencies
-- `server/`: Directory containing Docker configuration for TUS server
-  - `Dockerfile`: Docker configuration for TUS server
-  - `tusd.config`: Configuration file for TUS server (if needed)
-
-## Docker Configuration
-
-The project includes a Dockerized TUS server for easy deployment. The `Dockerfile` in the `server/` directory sets up the TUS server:
-
-```dockerfile
-FROM tusproject/tusd
-EXPOSE 1080
-CMD ["tusd", "-port=1080", "-behind-proxy"]
-```
-
-To customize the TUS server configuration, you can modify the `tusd.config` file (if present) or adjust the `CMD` in the Dockerfile.
 
 ## Dependencies
 
