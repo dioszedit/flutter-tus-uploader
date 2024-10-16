@@ -33,12 +33,9 @@ A Proof of Concept (POC) Flutter application demonstrating resilient file upload
    ```
 
 4. Update the server URL in `lib/main.dart` if necessary:
-   ```dart
-   final client = TusClient(
-     Uri.parse('http://locahost:1080/files/'),
-     _file!,
-     store: TusMemoryStore(),
-   );
+   ```
+   // Client host
+    Uri.parse("http://your-host:1080/files/"),
    ```
 
 5. Run the Flutter app:
