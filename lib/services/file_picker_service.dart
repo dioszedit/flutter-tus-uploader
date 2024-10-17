@@ -13,5 +13,6 @@ class FilePickerService {
       }
       return null;
     }
+    return null;
   }
 }
