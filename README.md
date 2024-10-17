@@ -7,7 +7,6 @@ Egy Proof of Concept (POC) Flutter alkalmazás, amely bemutatja a megbízható f
 - Fájl kiválasztása az eszköz tárhelyéről
 - Fájl feltöltése TUS-kompatibilis szerverre
 - Feltöltési folyamat megjelenítése
-- Hálózati megszakítások kezelése
 
 ## Előfeltételek
 
@@ -52,6 +51,3 @@ Egy Proof of Concept (POC) Flutter alkalmazás, amely bemutatja a megbízható f
 - `path_provider`: A fájlrendszerrel való munkához
 - `url_launcher`: URL megnyitásához
 - `cross_file`: Fájlokkal való munkához több platformon
-
-## License
-This project is open source and available under the [MIT License](LICENSE).
