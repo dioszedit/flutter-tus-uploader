@@ -23,6 +23,48 @@ linter:
   rules:
     # avoid_print: false  # Uncomment to disable the `avoid_print` rule
     # prefer_single_quotes: true  # Uncomment to enable the `prefer_single_quotes` rule
+    # A következő szabályok be vannak kapcsolva alapértelmezetten:
+    # Bővebb információk a szabályokról: https://dart.dev/tools/linter-rules
+    # - avoid_print
+    # - avoid_unnecessary_containers
+    # - avoid_web_libraries_in_flutter
+    # - no_logic_in_create_state
+    # - prefer_const_constructors
+    # - prefer_const_declarations
+    # - prefer_single_quotes
+    # ... és még sok más
+    - always_declare_return_types
+    - avoid_empty_else
+    - avoid_relative_lib_imports
+    - avoid_slow_async_io
+    - package_api_docs
+    - prefer_final_fields
+    - prefer_final_locals
+    - sort_child_properties_last
+    - unawaited_futures
+    - camel_case_types
+
+# Dart elemző beállítások
+analyzer:
+  exclude:
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
+  errors:
+    missing_return: error
+    dead_code: error
+    always_declare_return_types: error
+    avoid_web_libraries_in_flutter: error
+    cancel_subscriptions: error
+    close_sinks: error
+    valid_regexps: error
+
+  strong-mode:
+    implicit-casts: false
+    implicit-dynamic: false
+
+# Formázási beállítások
+dart_style:
+  max_line_length: 100
 
 # Additional information about this file can be found at
 # https://dart.dev/guides/language/analysis-options

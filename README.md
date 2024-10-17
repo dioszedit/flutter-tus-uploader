@@ -1,59 +1,56 @@
-# Flutter TUS Uploader
+# Flutter TUS Feltöltő
 
-A Proof of Concept (POC) Flutter application demonstrating resilient file uploading using the TUS (Resumable Upload) protocol.
+Egy Proof of Concept (POC) Flutter alkalmazás, amely bemutatja a megbízható fájlfeltöltést a TUS (Folytatható Feltöltés) protokoll használatával.
 
-## Features
+## Jellemzők
 
-- File selection from device storage
-- Upload files to a TUS-compatible server
-- Display upload progress
-- Handle network interruptions gracefully (to be implemented)
+- Fájl kiválasztása az eszköz tárhelyéről
+- Fájl feltöltése TUS-kompatibilis szerverre
+- Feltöltési folyamat megjelenítése
+- Hálózati megszakítások kezelése
 
-## Prerequisites
+## Előfeltételek
 
 - Flutter SDK
-- Docker (for running the TUS server)
+- Docker compose (a TUS szerver futtatásához) 
+  - Docker Hub: [tusproject/tusd](https://hub.docker.com/r/tusproject/tusd/dockerfile)
 
 ## Setup
 
-1. Clone the repository:
+1. Klónozza a repository-t:
    ```
-   git clone https://github.com/yourusername/flutter-tus-uploader.git
+   git clone https://github.com/dioszedit/flutter-tus-uploader.git
    cd flutter-tus-uploader
    ```
 
-2. Install dependencies:
+2. Telepítse a függőségeket:
    ```
    flutter pub get
    ```
 
-3. Run the TUS server using Docker:
+3. Docker compose segítségével indítsa el a TUS szervert:
    ```
    docker-compose up -d
    ```
 
-4. Update the server URL in `lib/main.dart` if necessary:
+4. Állítsa be a szerver URL-t `lib/services/tus_upload_service.dart` fájlban:
    ```
-   // Client host
-    Uri.parse("http://your-host:1080/files/"),
+   // TUS Client url
+   final String _tusClientUri = "https://your-host:1080/files/";
    ```
 
-5. Run the Flutter app:
+5. Futtassa a Flutter alkalmazást (támogatott eszközök a projektben: Android, iOS):
    ```
    flutter run
    ```
 
-## Project Structure
+## Függőségek a projektben
 
-- `lib/main.dart`: Main application code
-- `pubspec.yaml`: Flutter project configuration and dependencies
-
-## Dependencies
-
-- `tus_client_dart`: TUS protocol client implementation
-- `file_picker`: For selecting files from device storage
-- `path_provider`: For working with the file system
+- `tus_client_dart`: TUS protokoll kliens implementáció
+- `file_picker`: Fájlok kiválasztásához az eszköz tárhelyéről
+- `path_provider`: A fájlrendszerrel való munkához
+- `url_launcher`: URL megnyitásához
+- `cross_file`: Fájlokkal való munkához több platformon
 
 ## License
-
 This project is open source and available under the [MIT License](LICENSE).
