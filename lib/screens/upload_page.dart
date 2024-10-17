@@ -46,7 +46,7 @@ class UploadPageState extends State<UploadPage> {
                 progress: _uploadService.progress,
                 estimate: _uploadService.estimate,
               ),
-            if (_uploadService.progress > 0)
+            if (_uploadService.progress > 0 && _uploadService.progress < 100)
               ElevatedButton(
                 onPressed: () async {
                   await _uploadService.cancelUpload();

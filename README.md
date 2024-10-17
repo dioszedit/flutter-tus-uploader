@@ -32,14 +32,15 @@ Egy Proof of Concept (POC) Flutter alkalmazás, amely bemutatja a megbízható f
    ```
    docker-compose up -d
    ```
+4. Az adatok a `tus_data` mappában lesznek tárolva. A szervernek legyen hozzá írási jogosultsága.
 
-4. Állítsa be a szerver URL-t `lib/services/tus_upload_service.dart` fájlban:
+5. Állítsa be a szerver URL-t `lib/services/tus_upload_service.dart` fájlban:
    ```
    // TUS Client url
    final String _tusClientUri = "https://your-host:1080/files/";
    ```
 
-5. Futtassa a Flutter alkalmazást (támogatott eszközök a projektben: Android, iOS):
+6. Futtassa a Flutter alkalmazást (támogatott eszközök a projektben: Android, iOS):
    ```
    flutter run
    ```

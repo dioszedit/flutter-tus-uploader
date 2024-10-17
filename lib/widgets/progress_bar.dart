@@ -25,9 +25,12 @@ class ProgressBar extends StatelessWidget {
         FractionallySizedBox(
           widthFactor: progress / 100,
           child: Container(
+            decoration: BoxDecoration(
+              color: Colors.green,
+              borderRadius: BorderRadius.circular(8),
+            ),
             margin: const EdgeInsets.all(8),
             padding: const EdgeInsets.all(1),
-            color: Colors.green,
             // Nincs szöveg, csak a százalék jelzése
             child: const Text(" "),
           ),
@@ -39,21 +42,10 @@ class ProgressBar extends StatelessWidget {
             margin: const EdgeInsets.all(8),
             padding: const EdgeInsets.all(1),
             width: double.infinity,
-            child: Text(
-                "Feltöltve: ${progress.toStringAsFixed(1)}%, hátra lévő idő: ${_printDuration(estimate)}"),
+            child: Text("Feltöltve: ${progress.toStringAsFixed(1)}%"),
           ),
         ),
       ],
     );
-  }
-
-  /// Segédfüggvény az időtartam formázásához
-  ///
-  /// - [duration]: Az időtartam
-  String _printDuration(Duration duration) {
-    String twoDigits(int n) => n.toString().padLeft(2, '0');
-    final twoDigitMinutes = twoDigits(duration.inMinutes.remainder(60));
-    final twoDigitSeconds = twoDigits(duration.inSeconds.remainder(60));
-    return '$twoDigitMinutes:$twoDigitSeconds';
   }
 }

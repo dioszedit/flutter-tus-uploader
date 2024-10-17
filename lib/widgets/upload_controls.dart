@@ -25,8 +25,10 @@ class UploadControls extends StatelessWidget {
                   uploadService.progress > 0 && uploadService.progress < 100
                       ? null
                       : _handleUpload,
-              child:
-                  Text(uploadService.progress > 0 ? "Folytatás" : "Feltöltés"),
+              child: Text(
+                  uploadService.progress > 0 && uploadService.progress < 100
+                      ? "Folytatás"
+                      : "Feltöltés"),
             ),
           ),
           const SizedBox(width: 8),
