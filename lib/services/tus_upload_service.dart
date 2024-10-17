@@ -22,7 +22,7 @@ class TusUploadService {
   Uri? _fileUrl;
 
   // TUS kliens url
-  final String _tusClientUri = "http://192.168.50.102:1080/files/";
+  final String _tusClientUri = "https://your-host:1080/files/";
 
   double get progress => _progress;
 
